@@ -1,0 +1,314 @@
+/* * {
+            outline: 1px solid red;
+        } */
+
+        nav {
+            background: #fff4e18c;
+            transition: .6s;
+        }
+
+        nav:hover {
+            background: #fff4e1;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        #logo {
+            width: 120px;
+        }
+
+        .nav-item {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .navbar {
+            transition: 1s;
+        }
+
+        .navbar.hide {
+            transform: translateY(-60px);
+        }
+        /* banner */
+        .slider-wrap {
+            width: 100%;
+            height: 820px;
+            overflow: hidden;
+        }
+
+        .wrap-img {
+            width: 100%;
+            height: 100%;
+            transition: 1.5s;
+        }
+
+        li img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: 1.5s;
+        }
+
+        .wrap-img li {
+            width: 100%;
+            height: 100%;
+            flex: 1 0 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .slide-dots {
+            bottom: 1%;
+        }
+
+        .slide-dots li {
+            width: 10px;
+            height: 10px;
+            margin: 0 4px;
+            border: 2px solid #99886e;
+            border-radius: 50%;
+            transition: 0.6s;
+        }
+        .title {
+            z-index: 1;
+            top: 20%;
+            left: 15%;
+            color: #594e3f;
+            width: 30%;
+        }
+
+        /* section */
+        .tnr {
+            width: 100%;
+            height: 820px;
+            background: url(./img/tnvr2.0.png);
+            background-attachment: fixed;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* adopt */
+        .card {
+            /* width: 250px;
+            height: 250px; */
+            background-color: rgb(250, 250, 250);
+            border-radius: 5px;
+            line-height: 25px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: .6s;
+        }
+        .card.big {
+            transform: scale(1.1, 1.1);
+            box-shadow: 0 4px 8px 4px rgba(63, 63, 63, 0.31);
+        }
+
+        .pic {
+            width: 100%;
+            height: 180px;
+            margin-bottom: 5px;
+        }
+
+        .pic img {
+            width: 100%;
+        }
+    
+
+        /* adopt step */
+        .step-info {
+            position: absolute;
+            left: 30%;
+            top: 30%;
+            color: #6a5844;
+            width: 120px;
+            /* height: 100px; */
+        }
+
+        .arrow {
+            top: 55%;
+        }
+
+        .arrow1 {
+            padding-right: 7%;
+        }
+        .arrow3 {
+            padding-left: 7%;
+        }
+
+        .circle {
+            stroke-dasharray: 754;
+            stroke-dashoffset: 754;
+        }
+
+        .cir0.active {
+            animation: circle 1s ease-in-out;
+            animation-fill-mode: forwards;
+        }
+
+        .cir1.active {
+            animation: circle 1s ease-in-out;
+            animation-fill-mode: forwards;
+            animation-delay: .8s;
+        }
+
+        .cir2.active {
+            animation: circle 1s ease-in-out;
+            animation-fill-mode: forwards;
+            animation-delay: 1.6s;
+        }
+
+        .cir3.active {
+            animation: circle 1s ease-in-out;
+            animation-fill-mode: forwards;
+            animation-delay: 2.4s;
+        }
+        @keyframes circle {
+            form {
+                stroke-dashoffset: 754;
+            }
+
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        /* about-us */
+        .about-us {
+            background: url(./img/dog-about.png) no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .about-info {
+            /* background-color: #ffe2c080; */
+            line-height: 2rem;
+            /* border-radius: 20px; */
+        }
+
+        /* contact */
+        .contact-info {
+            width: 240px;
+            line-height: 1.5rem;
+        }
+
+        .contact-info span {
+            font-weight: 600;
+        }
+
+        .copy-right {
+            height: 80px;
+            background-color: #ffe2c0;
+            font-size: 0.8rem;
+        }
+        .top-btn{
+            left:94%;
+            bottom: 8%;
+            fill: #a48a6c;
+            opacity: 0;
+            transition: 1s;
+        }
+
+        /* rwd */
+        @media (max-width: 576px) {
+            nav {
+                background: #fff4e18c;
+
+            }
+            .title {
+                z-index: 1;
+                top: 15%;
+                left: 25%;
+                color: #433a2f;
+                width: 50%;
+                background-color: #ffe8cdaa;
+                padding: 10px;
+                border-radius: 5px;
+            }
+
+            .tnr {
+                height: 300px;
+                background-size: contain;
+                background: url(./img/oldtv.png);
+                background-attachment: fixed;
+                background-position: center;
+                   background-size: cover;
+                 background-repeat: no-repeat;
+            }
+
+
+            .step-info {
+                left: 37%;
+                top: 30%;
+            }
+            .arrow {
+                height: 68%;
+                top: 20%;
+            }
+
+            .arrow1 svg,
+            .arrow2 svg,
+            .arrow3 svg {
+                transform: rotate(90deg);
+                margin: auto;
+            }
+
+            .arrow1,
+            .arrow3 {
+                padding: 0px;
+            }
+
+            .about-us {
+                background: url(./img/tnr-pic.jpg) no-repeat;
+                background-size: cover;
+            }
+
+            .about-info {
+                background-color: #ffe2c080;
+                border-radius: 20px;
+            }
+
+            .contact-info {
+                margin: 0 auto;
+            }
+            .top-btn{
+                left:90%;              
+            }
+        }
+
+        @media (min-width: 577px) and (max-width:960px) {
+            .title {
+                z-index: 1;
+                top: 15%;
+                left: 20%;
+                color: #594e3f;
+                width: 40%;
+                background-color: #ffe2c051;
+                padding: 10px;
+                border-radius: 5px;
+            }
+
+            .tnr {
+                height: 500px;
+                background-size: cover;
+                background-position-x: 45%;
+            }
+
+            .card-hide{
+                display: none;
+            }
+
+            .circle {
+                display: none;
+            }
+
+            .about-info {
+                background-color: #ffe2c080;
+                border-radius: 20px;
+            }
+        }

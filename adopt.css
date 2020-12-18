@@ -1,0 +1,134 @@
+/* *{
+    outline: 1px solid red;;
+} */
+
+nav {
+    background: #fff4e18c;
+    transition: .6s;
+}
+
+nav:hover {
+    background: #fff4e1;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+#logo {
+    width: 120px;
+}
+
+.nav-item {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.navbar {
+    transition: 1s;
+}
+
+.navbar.hide {
+    transform: translateY(-60px);
+}
+
+/* ----banner */
+ .banner {
+    background: url(./img/dog-0people-about.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    width: 100%;
+}
+
+.banner h2 {
+    line-height: 300px;
+}
+
+/* menu */
+.menu{
+    border: 0.5px solid #fff4e1;
+    border-radius: 10px;
+    background-color: #fff4e1;
+    height: 500px;
+    width: 150px;
+    position: fixed;
+    transition: .8s;
+    top:300px;
+}
+.menu img{
+    width: 70%;
+    top: 130%;
+    right: 0;
+}
+.list-group-item.list-group-item-action{
+    border: 0.5px solid #f2e0c0;
+    background-color: transparent;
+}
+.list-group-item.list-group-item-action:hover{
+    background-color: #f2e0c0;
+}
+
+/* adopt-info */
+.card {
+    /* width: 200px;
+    height: 200px; */
+    background-color: rgb(250, 250, 250);
+    border-radius: 5px;
+    /* padding-top: 20px; */
+    line-height: 25px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: .6s;
+}
+.card.big {
+    transform: scale(1.1, 1.1);
+    box-shadow: 0 4px 8px 4px rgba(63, 63, 63, 0.31);
+}
+
+.pic {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    border-radius: 5px 0;
+    margin-bottom: 5px;
+}
+
+.pic img {
+    width: 100%;
+}
+.top-btn{
+    left:94%;
+    bottom: 8%;
+    width: 10%;
+    opacity: 0;
+    transition: 1s;
+}
+.top-btn img{
+    width: 25%;
+}
+@media (max-width: 576px) {
+    nav {
+        background: #fff4e1e2;
+    }
+    .menu{
+        z-index: 1;
+        opacity: 0.5;
+        transform: translatex(-145px);
+        transition: .5s;
+    }
+    .menu.hide{
+        z-index: 1;
+        opacity: 1;
+        transform: none;
+        
+    }
+    .top-btn{
+        left:88%;   
+        bottom: 5%;   
+        text-align: center;        
+    }
+    .top-btn img{
+        width: 35%;
+    }
+    }
