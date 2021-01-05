@@ -24,7 +24,7 @@
       .progress_pink {
         background-color: #e70068;
         height: 12px;
-        width: 50%;
+        width: 0%;
         border-radius: 6px;
         position: relative;
       }
@@ -36,19 +36,11 @@
         border-radius: 50%;
         position: absolute;
         top: -30%;
-        left: 80%;
+        left: 0;
       }
     </style>
   </head>
   <body>
-    <input
-      type="range"
-      class="control"
-      min="0.00"
-      max="1.00"
-      step="0.05"
-      ng-model="progress"
-    />
     <div class="mt-5">
       <div class="progress_bg mx-auto">
         <div class="progress_pink">
@@ -62,6 +54,42 @@
       integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
       crossorigin="anonymous"
     ></script>
-    <script></script>
+    <script>
+      let mouseX = 0;
+      let offsetX = 0;
+      let isDown = false;
+      var div = document.querySelector(".progress_control");
+      const progressbar = document.querySelector(".progress_pink");
+      // let progresswidth = progressbar.style.width;
+
+      progressbar.addEventListener("mousedown", function (e) {
+        isDown = true;
+        mouseX = e.pageX;
+        document.addEventListener("mousemove", move);
+      });
+
+      document.addEventListener("mouseup", function (e) {
+        if (isDown) {
+          offsetX += e.pageX - mouseX;
+        }
+
+        document.removeEventListener("mousemove", move);
+      });
+
+      function move(e) {
+        if (isDown) {
+          const dx = e.pageX - mouseX;
+          const xx = offsetX + dx;
+          console.log("xx", offsetX + dx);
+          // console.log("mouseX", mouseX);
+          // div.style.left = `${offsetX + dx + 10}%`;
+
+          if (xx < 190 && xx > 0) {
+            progressbar.style.width = `${offsetX + dx}px`;
+            div.style.left = `${offsetX + dx - 10}px`;
+          }
+        }
+      }
+    </script>
   </body>
 </html>
