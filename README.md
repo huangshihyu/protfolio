@@ -4,7 +4,6 @@
 
 *   [0975-162-808](tel:+886-975162808)
 *   [fomo80265@gmail.com](mailto:fomo80265@gmail.com)
-*
 * ![](./images/id_photo.jpg)
 
 ### 教育經歷
