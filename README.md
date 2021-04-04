@@ -33,7 +33,7 @@ UI/UX設計師設計師養成班
 
 2020年12月-2021年3月
 
-*   台灣皮膚科醫學會-國際酒糟月系列活動(2021尋找玫瑰女孩) [arrow-right2](https://www.rosegirl.com.tw/)
+*   台灣皮膚科醫學會-國際酒糟月系列活動(2021尋找玫瑰女孩) more(https://www.rosegirl.com.tw/)
 *   富邦人壽保險股份有限公司-退休保險試算活動（未上線）
 *   Sisley Paris 希思黎化妝品有限公司-2021 Hair Rituel 官網行銷頁 [arrow-right2](https://www.sisley-paris.com/zh-TW/2021-04-md-hair)
 *   Sisley Paris 希思黎化妝品有限公司-2021 全能乳液官網行銷頁 [arrow-right2](https://www.sisley-paris.com/zh-TW/2021-04-md-sisley_ec)
