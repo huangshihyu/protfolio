@@ -5,10 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+      .a,
+      .b {
+        text-align: center;
+      }
       .a div {
         width: 100px;
+        display: inline-block;
         line-height: 60px;
-        margin: 30px auto;
+        margin: 30px 3%;
+        opacity: 0.2;
       }
       .a div:nth-child(1) {
         background-color: coral;
@@ -20,9 +26,8 @@
         background-color: #c4c498;
       }
       .color {
-        /* background: darkblue; */
         transform: scale(1.1);
-        opacity: 0.2;
+        opacity: 1 !important;
       }
     </style>
   </head>
@@ -53,7 +58,7 @@
         $(".1").addClass("color");
         $(".2").removeClass("color");
         $(".3").removeClass("color");
-        setTimeout(showLogin2, 2000);
+        setTimeout(showLogin2, 1500);
       }
 
       //   setInterval("showLogin()", "1000");
@@ -61,7 +66,7 @@
         $(".2").addClass("color");
         $(".1").removeClass("color");
         $(".3").removeClass("color");
-        setTimeout(showLogin3, 2000);
+        setTimeout(showLogin3, 1500);
       }
 
       //   setInterval("showLogin2()", "2000");
@@ -69,7 +74,7 @@
         $(".3").addClass("color");
         $(".2").removeClass("color");
         $(".1").removeClass("color");
-        setTimeout(showLogin, 2000);
+        setTimeout(showLogin, 1500);
       }
       $(".1").on("click", function () {
         // showLogin();
