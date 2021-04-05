@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>canvas</title>
+    <link rel="stylesheet" href="./css/index.css" />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <section class="text-center m_ontology">
+        <!-- <h1 class="m_title m_title_control">
+          <span class="m_text_transform_1">D</span
+          ><span class="m_text_transform_2">i</span
+          ><span class="m_text_transform_3">y</span>
+        </h1> -->
+        <div class="m_step_3 m_pc_none m_ontology_behind">
+          <div class="d-flex justify-content-center m_step">
+            <div class="m_step_number">Step1</div>
+            <div class="m_divider"></div>
+            <div class="m_step_info">上傳照片<br>調整圖片</div>
+          </div>
+          <div class="d-flex justify-content-center m_step">
+            <div class="m_step_number">Step2</div>
+            <div class="m_divider"></div>
+            <div class="m_step_info">選擇物件<br />佈置畫面</div>
+          </div>
+          <div class="d-flex justify-content-center m_step">
+            <div class="m_step_number">Step3</div>
+            <div class="m_divider"></div>
+            <div class="m_step_info">儲存圖片</div>
+          </div>
+        </div>
+        <div
+          class="d-flex align-items-center justify-content-center m_ontology_behind"
+        >
+          <div class="pic_option d-flex flex-column justify-content-center">
+            <p>選擇物件</p>
+            <img
+              src="./imgs/wo.png"
+              alt=""
+              id="pt_img1"
+              class="tooltip-style"
+              data-toggle="tooltip"
+              data-placement="top"
+              title="點擊可在畫面上編輯"
+              onclick="canvasImgClick();"
+            />
+            <img
+              src="./imgs/menu-use.png"
+              alt=""
+              id="pt_img2"
+              data-toggle="tooltip"
+              data-placement="top"
+              title="點擊可在畫面上編輯"
+              onclick="canvasImgClick();"
+            />
+            <img
+              src="./imgs/menu-use.png"
+              alt=""
+              id="pt_img3"
+              data-toggle="tooltip"
+              data-placement="top"
+              title="點擊可在畫面上編輯"
+              onclick="canvasImgClick();"
+            />
+            <img
+              src="./imgs/menu-use.png"
+              alt=""
+              id="pt_img4"
+              data-toggle="tooltip"
+              data-placement="top"
+              title="點擊可在畫面上編輯"
+              onclick="canvasImgClick();"
+            />
+            <p>縮放圖片</p>
+            <div>
+              <div class="progress_bg mx-auto">
+                <div class="progress_pink">
+                  <div class="progress_control"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="m_canvas_area" id="m_canvas_area">
+            <!-- canvas -->
+            <canvas class="m_canvas_control" id="m_canvas"></canvas>
+            <!-- canvas -->
+          </div>
+          <div class="m_step_3 m_mobile_none">
+            <div class="d-flex justify-content-center m_step">
+              <div class="m_step_number">Step1</div>
+              <div class="m_divider"></div>
+              <div class="m_step_info">上傳照片<br />調整圖片</div>
+            </div>
+            <div class="d-flex justify-content-center m_step">
+              <div class="m_step_number">Step2</div>
+              <div class="m_divider"></div>
+              <div class="m_step_info">選擇物件<br />佈置畫面</div>
+            </div>
+            <div class="d-flex justify-content-center m_step">
+              <div class="m_step_number">Step3</div>
+              <div class="m_divider"></div>
+              <div class="m_step_info">儲存圖片</div>
+            </div>
+            <div class="text-center d-flex flex-column">
+              <button class="m_btn m_btn_o">
+                <input type="file" id="imgInp" class="imgInp" />上傳照片
+              </button>
+              <button
+                class="m_btn m_btn_g"
+                onclick="toggleModal();takePhoto();"
+                id="m_canvas_save"
+              >
+                確認送出
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="text-center m_pc_none m_ontology_behind">
+          <button class="m_btn m_btn_o">
+            <input type="file" id="imgInp_m" class="imgInp" />上傳照片
+          </button>
+          <button
+            class="m_btn m_btn_g"
+            onclick="toggleModal();takePhoto();"
+            id="m_canvas_save_mobile"
+          >
+            確認送出
+          </button>
+        </div>
+      </section>
+
+      <!-- modal -->
+      <div class="modal-wrapper">
+        <div class="m_modal">
+          <div class="content">
+            <div class="container">
+              <div class="row">
+                <div
+                  class="col-12 d-flex justify-content-lg-end justify-content-md-end justify-content-sm-center justify-content-center"
+                >
+                  <div class="modal_canvas_area">
+                    <div id="form_pet_img_control">
+                      <img src="#" alt="" id="form_pet_img" />
+                    </div>
+
+                    <!-- canvas -->
+                    <!-- <canvas class="m_canvas_control" id="m_canvas_finish"></canvas> -->
+                    <!-- canvas -->
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="m_form_control">
+                    <p class="m_pet_img_finish">完成！</p>
+
+                    <button class="m_btn m_form_btn_g" onclick="toggleModal();">
+                      重新製作
+                    </button>
+                    <button class="m_btn m_form_btn_o" onclick="toggleModal();">
+                      儲存圖片
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- modal -->
+
+      <footer class="m_footer m_mobile_none"></footer>
+    </div>
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.js"
+      integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.3.0/fabric.js"
+      integrity="sha512-tmZwBA2ANntbQQlzo5KwKgS9aIfja0tzQtEjEeNVmhHrmID9AQy7De4ZqyQcAhVbN78qD9GfzLvZ5lV5gqJj0A=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.js"></script>
+    <script>
+      //  ------------縮放圖片進度條--------------
+      // --pcc--
+      let windowWidth = window.screen.width;
+
+      let mouseX = 0;
+      let mouseXM = 0;
+      let touchX = 0;
+      let offsetX = 40;
+      let offsetXM = 6;
+      let isDown = false;
+      var conTrol = document.querySelector(".progress_control");
+      const progressbar = document.querySelector(".progress_pink");
+
+      progressbar.addEventListener("mousedown", function (e) {
+        console.log("www", windowWidth);
+        isDown = true;
+        mouseX = e.pageX;
+        document.addEventListener("mousemove", move);
+      });
+
+      document.addEventListener("mouseup", function (e) {
+        if (isDown) {
+          offsetX += e.pageX - mouseX;
+        }
+        document.removeEventListener("mousemove", move);
+      });
+
+      function move(e) {
+        if (isDown) {
+          const dx = e.pageX - mouseX;
+          const xx = offsetX + dx;
+          var xp = (xx / 82) * 100;
+
+          if (xp < 100 && xp > 0) {
+            progressbar.style.width = `${xp}%`;
+            conTrol.style.left = `${xx - 10}px`;
+            resizeImg(xp);
+          }
+        }
+      }
+      // --mobileee--
+
+      var active = false;
+      var currentX;
+      var initialX;
+      var xOffset = 6;
+
+      progressbar.addEventListener("touchstart", dragStart, false);
+      progressbar.addEventListener("touchend", dragEnd, false);
+      progressbar.addEventListener("touchmove", drag, false);
+
+      function dragStart(e) {
+        if (e.type === "touchstart") {
+          initialX = e.touches[0].clientX - xOffset;
+        } else {
+          initialX = e.clientX - xOffset;
+        }
+        if (e.target === conTrol) {
+          active = true;
+        }
+      }
+      function dragEnd(e) {
+        initialX = currentX;
+        active = false;
+      }
+
+      function drag(e) {
+        console.log("hi");
+        if (active) {
+          e.preventDefault();
+          if (e.type === "touchmove") {
+            currentX = e.touches[0].clientX - initialX;
+          } else {
+            currentX = e.clientX - initialX;
+          }
+          xOffset = currentX;
+          setImgSize(currentX, conTrol);
+        }
+      }
+      function setImgSize(xPos, el) {
+        console.log(xPos, el);
+        // 換算成vw
+        var xx = (xPos / windowWidth) * 100;
+        var xp = (xx / 12) * 100;
+        console.log(xx, xp);
+        if (xp < 100 && xp > 0) {
+          progressbar.style.width = `${xp}%`;
+          conTrol.style.left = `${xx - 1.5}vw`;
+          resizeImg(xp);
+        }
+      }
+      //  --------------縮放圖片進度條-------------------
+      //  --縮放圖片--
+      function resizeImg(w) {
+        let widthP = w + 50;
+        $("#pet_img").css("width", `${widthP}%`);
+        $("#form_pet_img").css("width", `${widthP}%`); //用截圖取代
+      }
+      // ---------------移動圖片---------------
+      var dragItem = document.querySelector("#pet_img_control img");
+      var dragItemForm = document.querySelector("#form_pet_img_control img"); //用截圖取代
+      var container = document.querySelector(".m_canvas_area");
+
+      var activeImg = false;
+      var canvasMoveImg = false;
+      var currentXI;
+      var currentYI;
+      var initialXI;
+      var initialYI;
+      var xOffsetI = 0;
+      var yOffsetI = 0;
+
+      container.addEventListener("touchstart", dragStartI, false);
+      container.addEventListener("touchend", dragEndI, false);
+      container.addEventListener("touchmove", dragI, false);
+
+      container.addEventListener("mousedown", dragStartI, false);
+      container.addEventListener("mouseup", dragEndI, false);
+      container.addEventListener("mousemove", dragI, false);
+
+      // 增加這個function使canvas跟圖片移動不重疊
+      function canvasImgClick() {
+        canvasMoveImg = true;
+      }
+      function dragStartI(e) {
+        if (e.type === "touchstart") {
+          console.log("img1");
+          initialXI = e.touches[0].clientX - xOffsetI;
+          initialYI = e.touches[0].clientY - yOffsetI;
+        } else {
+          initialXI = e.clientX - xOffsetI;
+          initialYI = e.clientY - yOffsetI;
+        }
+
+        if (canvasMoveImg) {
+          activeImg = false;
+        } else {
+          activeImg = true;
+        }
+      }
+
+      function dragEndI(e) {
+        initialXI = currentXI;
+        initialYI = currentYI;
+        activeImg = false;
+      }
+
+      function dragI(e) {
+        if (activeImg) {
+          e.preventDefault();
+          if (e.type === "touchmove") {
+            currentXI = e.touches[0].clientX - initialXI;
+            currentYI = e.touches[0].clientY - initialYI;
+          } else {
+            currentXI = e.clientX - initialXI;
+            currentYI = e.clientY - initialYI;
+          }
+          xOffsetI = currentXI;
+          yOffsetI = currentYI;
+
+          setTranslate(currentXI, currentYI, dragItem);
+          setTranslate(currentXI, currentYI, dragItemForm); //用截圖取代
+        }
+      }
+
+      function setTranslate(xPos, yPos, el) {
+        console.log("moveee", el);
+        el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+      }
+      //  ----------------移動圖片-----------
+      // --上傳圖片--
+      function readURL(input) {
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+
+          reader.onload = function (e) {
+            $("#pet_img").attr("src", e.target.result);
+            $("#form_pet_img").attr("src", e.target.result); //用截圖取代
+          };
+          reader.readAsDataURL(input.files[0]);
+        }
+      }
+      //pcc
+      $("#imgInp").change(function () {
+        $(".m_canvas_area").css("background", "none");
+        $(".modal_canvas_area ").css("background-color", "transparent");
+        readURL(this);
+      });
+      // 手機版
+      $("#imgInp_m").change(function () {
+        $(".m_canvas_area").css("background", "none");
+        $(".modal_canvas_area ").css("background-color", "transparent");
+        readURL(this);
+      });
+      // --上傳圖片--
+
+      // -------------canvasssss---------------
+      const card = new fabric.Canvas("m_canvas");
+      // 如果<canvas>標籤沒設置寬高，可以通過js動態設置
+      card.setWidth(463);
+      card.setHeight(566);
+
+      card.on("object:modified", (e) => {
+        console.log(e.target);
+      });
+
+      // --新增圖片--
+      // 第一張
+      $("#pt_img1").on("click", function () {
+        console.log("e91");
+        const imgElement1 = document.getElementById("pt_img1");
+        const imgInstance1 = new fabric.Image(imgElement1, {
+          left: 0,
+          top: 50,
+          angle: 0,
+          opacity: 1,
+          scaleX: 0.3,
+          scaleY: 0.3,
+        });
+        card.add(imgInstance1);
+      });
+      // 第二張
+      $("#pt_img2").on("click", function () {
+        console.log("e92");
+        const imgElement1 = document.getElementById("pt_img2");
+        const imgInstance1 = new fabric.Image(imgElement1, {
+          left: 0,
+          top: 50,
+          angle: 0,
+          opacity: 1,
+          scaleX: 0.4,
+          scaleY: 0.4,
+        });
+        card.add(imgInstance1);
+      });
+      // 第三張
+      $("#pt_img3").on("click", function () {
+        console.log("e93");
+        const imgElement1 = document.getElementById("pt_img3");
+        const imgInstance1 = new fabric.Image(imgElement1, {
+          left: 0,
+          top: 50,
+          angle: 0,
+          opacity: 1,
+          scaleX: 0.4,
+          scaleY: 0.4,
+        });
+        card.add(imgInstance1);
+      });
+      // 第四張
+      $("#pt_img4").on("click", function () {
+        console.log("e94");
+        const imgElement1 = document.getElementById("pt_img4");
+        const imgInstance1 = new fabric.Image(imgElement1, {
+          left: 0,
+          top: 50,
+          angle: 0,
+          opacity: 1,
+          scaleX: 0.4,
+          scaleY: 0.4,
+        });
+        card.add(imgInstance1);
+      });
+      //corner
+      fabric.Object.prototype.cornerColor = "#f8f8f8";
+      fabric.Object.prototype.borderColor = "#f8f8f8";
+      // fabric.Object.prototype.transparentCorners = false;
+      fabric.Object.prototype.cornerSize = "10";
+      fabric.Object.prototype.padding = "8";
+
+      // --去除fabric control--
+      function fabricSave() {
+        fabric.Object.prototype.hasControls = false;
+        fabric.Object.prototype.hasBorders = false;
+        card.renderAll();
+      }
+      function fabricEdit() {
+        fabric.Object.prototype.hasControls = true;
+        fabric.Object.prototype.hasBorders = true;
+      }
+      const fabricControl = document.getElementById("m_canvas_save");
+      const fabricControlM = document.getElementById("m_canvas_save_mobile");
+
+      fabricControl.addEventListener("mouseenter", function () {
+        console.log("in");
+        fabricSave();
+      });
+      fabricControlM.addEventListener("mouseenter", function () {
+        console.log("inM");
+        fabricSave();
+      });
+      fabricControl.addEventListener("mouseenter", function () {
+        console.log("out");
+        fabricEdit();
+      });
+      // --去除fabric control--
+
+      // --刪除--
+      var deleteIcon = "imgs/del.png";
+      var deleteImg = document.createElement("img");
+      deleteImg.src = deleteIcon;
+      function renderIcon(icon) {
+        return function renderIcon(
+          ctx,
+          left,
+          top,
+          styleOverride,
+          fabricObject
+        ) {
+          var size = this.cornerSize;
+          ctx.save();
+          ctx.translate(left, top);
+          ctx.rotate(fabric.util.degreesToRadians(fabricObject.angle));
+          ctx.drawImage(icon, -size / 2, -size / 2, size, size);
+          ctx.restore();
+        };
+      }
+      fabric.Object.prototype.controls.deleteControl = new fabric.Control({
+        x: 0.4,
+        y: -0.4,
+        offsetY: -16,
+        offsetX: 16,
+        cursorStyle: "pointer",
+        mouseUpHandler: deleteObject,
+        render: renderIcon(deleteImg),
+        cornerSize: 24,
+      });
+
+      function deleteObject(eventData, target) {
+        var canva = target.target.canvas;
+        console.log(target);
+        console.log(canva);
+        canva.remove(target.target);
+      }
+      // --------------canvasssss------------------
+
+      //   +++++++++++++++其他+++++++++++++++++
+      // --tooltip--
+      $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+
+      // --modal--
+      function toggleModal() {
+        $(".modal-wrapper").toggleClass("open");
+        $(".m_ontology").toggleClass("blur");
+        $(".m_ontology_behind").toggleClass("opacity");
+        $(".m_title_control").toggleClass("m_mobile_none");
+        $(".wrapper").toggleClass("m_modal_popup");
+        if (windowWidth > 650) {
+          $("body").toggleClass("overflowhidden");
+        } else {
+          $(".modal-wrapper").toggleClass("overflowscroll");
+        }
+      }
+
+      // --screen shot--
+      // 觸發截圖的btn onclick="takePhoto()"
+      const formImgPlace = document.getElementById("form_pet_img_control");
+      function takePhoto() {
+        // ()裡面是被截圖的人
+        html2canvas(document.getElementById("m_canvas_area"), {
+          onrendered: function (canvas) {
+            console.log(canvas.toDataURL()); //這是截圖的base64
+            formImgPlace.appendChild(canvas); //放截圖
+          },
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Modal&screenshot</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./modal.css" />
+    <style>
+      #view {
+        border: 3px solid #f6ff77;
+        /* background-image: url(https://molly.dej.com.tw/test/deerdogs/imgs/logo.png);
+            background-size: 100%; */
+        background-color: #323355;
+        width: 100px;
+        height: 100px;
+      }
+
+      #ppt_img {
+        width: 200px;
+        height: 200px;
+        border: 1px solid darksalmon;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h4>modal</h4>
+    <div class="page-wrapper">
+      <p>a連結</p>
+      <a class="btn trigger" href="javascript:;">Click Me!</a>
+      <p>按鈕</p>
+      <button
+        class="btn"
+        onclick="toggleModal();"
+        style="background-color: darkblue"
+      >
+        按我拜託！
+      </button>
+    </div>
+    <!-- modal -->
+    <div class="modal-wrapper">
+      <div class="modal">
+        <div class="content">
+          <div class="container">
+            <div class="row">
+              <div class="col-6">
+                <p>放圖片</p>
+              </div>
+              <div class="col-6">
+                <form action="">
+                  <p>這裡是form表單的位置</p>
+                  <a class="btn-close trigger" href="javascript:;"></a>
+                  <button
+                    class="btn"
+                    onclick="toggleModal();"
+                    style="background-color: rgb(121, 121, 197)"
+                  >
+                    gogoggo
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- modal -->
+    <h4>screenshot</h4>
+    <div id="view"></div>
+    <span>input觸發</span
+    ><input
+      type="button"
+      value="截圖"
+      class="btn"
+      style="background-color: goldenrod"
+      onclick="takePhoto();"
+    />
+    <span>按鈕</span
+    ><button
+      onclick="takePhoto();"
+      class="btn"
+      style="background-color: darkcyan"
+    >
+      screen gogogogogoogo
+    </button>
+    <div id="ppt_img"></div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.js"
+      integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.3.0/fabric.js"
+      integrity="sha512-tmZwBA2ANntbQQlzo5KwKgS9aIfja0tzQtEjEeNVmhHrmID9AQy7De4ZqyQcAhVbN78qD9GfzLvZ5lV5gqJj0A=="
+      crossorigin="anonymous"
+    ></script>
+    <!-- 截圖用cdn -->
+    <script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.js"></script>
+    <script>
+      // -------modal---------
+      $(document).ready(function () {
+        $(".trigger").click(function () {
+          $(".modal-wrapper").toggleClass("open");
+          $(".page-wrapper").toggleClass("blur");
+          return false;
+        });
+      });
+      // 用在btn上  onclick="toggleModal();"
+      function toggleModal() {
+        $(".modal-wrapper").toggleClass("open");
+        $(".page-wrapper").toggleClass("blur");
+      }
+
+      // ---------screen shot-----------
+      // 觸發截圖的btn onclick="takePhoto()"
+      // yo 是放截圖的地方
+      const yo = document.getElementById("ppt_img");
+      function takePhoto() {
+        // view 是被截圖的人
+        html2canvas(document.getElementById("view"), {
+          onrendered: function (canvas) {
+            console.log(canvas.toDataURL()); //這是截圖的base64
+            yo.appendChild(canvas); //這是有截圖的畫布(自然產生)
+          },
+        });
+      }
+    </script>
+  </body>
+</html>

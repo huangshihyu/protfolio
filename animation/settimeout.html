@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .a div {
+        width: 100px;
+        line-height: 60px;
+        margin: 30px auto;
+      }
+      .a div:nth-child(1) {
+        background-color: coral;
+      }
+      .a div:nth-child(2) {
+        background-color: #6c8ab6;
+      }
+      .a div:nth-child(3) {
+        background-color: #c4c498;
+      }
+      .color {
+        /* background: darkblue; */
+        transform: scale(1.1);
+        opacity: 0.2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="a">
+      <div class="1">1</div>
+      <div class="2">2</div>
+      <div class="3">3</div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      //   xilou();
+      //   function xilou() {
+
+      //     $("div").html("456");
+      //     // setTimeout("xilou()",1000);
+      //     //用這個也可以
+      //     setTimeout(xilou, 1000);
+      //     $("div").html("123");
+      //   }
+      showLogin();
+      function showLogin() {
+        $(".1").addClass("color");
+        $(".2").removeClass("color");
+        $(".3").removeClass("color");
+        setTimeout(showLogin2, 2000);
+      }
+
+      //   setInterval("showLogin()", "1000");
+      function showLogin2() {
+        $(".2").addClass("color");
+        $(".1").removeClass("color");
+        $(".3").removeClass("color");
+        setTimeout(showLogin3, 2000);
+      }
+
+      //   setInterval("showLogin2()", "2000");
+      function showLogin3() {
+        $(".3").addClass("color");
+        $(".2").removeClass("color");
+        $(".1").removeClass("color");
+        setTimeout(showLogin, 2000);
+      }
+      $(".1").on("click", function () {
+        // showLogin();
+        $(".1").addClass("color");
+        $(".2").removeClass("color");
+        $(".3").removeClass("color");
+      });
+      $(".2").on("click", function () {
+        $(".2").addClass("color");
+        $(".1").removeClass("color");
+        $(".3").removeClass("color");
+        // showLogin2();
+      });
+      $(".3").on("click", function () {
+        // showLogi3();
+        $(".3").addClass("color");
+        $(".2").removeClass("color");
+        $(".1").removeClass("color");
+      });
+      //   setInterval("showLogin3()", "3000");
+    </script>
+  </body>
+</html>

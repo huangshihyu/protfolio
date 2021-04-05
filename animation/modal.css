@@ -1,0 +1,113 @@
+body {
+  background-color: rgb(240, 213, 204);
+}
+/* 設定為置中 */
+.page-wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 0 45% 2%;
+  border-bottom: 5px solid #666;
+}
+/* modal 出現 背景模糊  切換classname*/
+.blur {
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+/* click btn */
+.btn {
+  width: 150px;
+  padding: 1em 0;
+  font: 1.125em;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 5px;
+  background: rgba(217, 67, 86, 1);
+  margin: 5% auto;
+}
+/* ＝＝modal 出來後背景＝＝ */
+.modal-wrapper {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  /* background: rgba(255, 257, 153, 0.75); */
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+
+.modal-wrapper.open {
+  opacity: 1;
+  visibility: visible;
+}
+/* ＝＝modal 出來後背景＝＝ */
+
+/* modal 本人 ＱＱ */
+.modal {
+  width: 600px;
+  height: 400px;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  top: 30%;
+  left: 0;
+  background: #fff;
+  /* background: transparent; */
+  opacity: 0;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.modal-wrapper.open .modal {
+  opacity: 1;
+}
+
+/* 非必要設定 */
+.btn-close {
+  width: 32px;
+  height: 32px;
+  display: block;
+  float: right;
+  background-color: blue;
+}
+
+.btn-close::before,
+.btn-close::after {
+  content: "";
+  width: 32px;
+  height: 6px;
+  display: block;
+  background: #fff;
+}
+
+.btn-close::before {
+  margin-top: 12px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.btn-close::after {
+  margin-top: -6px;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.content {
+  padding: 5%;
+}
+/* 非必要設定 */
