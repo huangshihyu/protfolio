@@ -111,3 +111,18 @@ body {
   padding: 5%;
 }
 /* 非必要設定 */
+.boe {
+  box-sizing: border-box;
+  display: inline-block;
+  justify-content: space-between;
+  list-style: decimal;
+  list-style: decimal-leading-zero;
+  position: relative;
+  text-align: right;
+  background-color: #0085ff;
+  position: absolute;
+  border-radius: 5px;
+  height: 100%;
+  align-items: center;
+  opacity: 0;
+}
