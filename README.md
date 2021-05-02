@@ -48,7 +48,7 @@ UI/UX 設計師設計師養成班
 - Darphin(朵法) -2021 粉紅保養購物節 [more](https://www.darphintw.com/2021pink/)
 - THREE 東方美企業集團 -2021 春季彩妝系列推廣活動頁 [more](https://www.threecosmetics.com.tw/event-page/192-id192)
 - THREE 東方美企業集團 -2021 全新底粧系列推廣活動頁
-- Elizabeth Arden 伊麗莎白雅頓台灣分公司 -煥亮年輕 X 肌質解密活動推廣頁
+- Elizabeth Arden 伊麗莎白雅頓台灣分公司 -煥亮年輕 X 肌質解密活動推廣頁 [more](https://ea2021mdevent.com/)
 - Marc Jacobs -秒殺熱賣包款 Top4 活動頁
 - deerdogs 狄寶 -2021 新春福袋活動頁
 
